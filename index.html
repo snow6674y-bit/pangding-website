@@ -1,0 +1,342 @@
+﻿<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="胖丁日記是一個以英國短毛貓胖丁為主角的寵物寫真網站，包含日常照片、年齡換算與體重紀錄功能。">
+  <meta name="author" content="Pang Ding">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#ffffff">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="zh_TW">
+  <meta property="og:title" content="胖丁日記 Pang Ding Website">
+  <meta property="og:description" content="以英國短毛貓胖丁為主角的寵物寫真網站，結合日常照片、年齡換算與體重紀錄功能。">
+  <meta property="og:image" content="images/pangding-window-light.jpg">
+  <meta property="og:image:alt" content="胖丁在窗邊看外面的風景">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="胖丁日記 Pang Ding Website">
+  <meta name="twitter:description" content="以英國短毛貓胖丁為主角的寵物寫真網站，結合日常照片、年齡換算與體重紀錄功能。">
+  <meta name="twitter:image" content="images/pangding-window-light.jpg">
+  <title>胖丁日記 Pang Ding Website — Lilac British Shorthair</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* Final UI direction: tea-white magazine layout */
+    :root{--cream:#ffffff;--paper:#fffdf8;--ink:#2f2823;--muted:#8a7b70;--sage:#d8c2a8;--line:#e7ddd2;--lilac:#efe4d6;--radius:28px;--shadow:0 24px 70px rgba(80,59,42,.08)}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0!important;background:var(--cream)!important;color:var(--ink)!important;font-family:"Noto Sans TC",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;line-height:1.85;letter-spacing:.025em}
+    body::before{display:none!important}
+    a{color:inherit;text-decoration:none}
+    img{display:block;width:100%;height:100%;object-fit:cover}
+    .wrap{width:min(1120px,calc(100% - 48px))!important;margin:auto}
+    .eyebrow{font-size:.72rem!important;text-transform:uppercase;letter-spacing:.24em;color:var(--muted)!important;font-weight:600}
+    .display{font-family:"DM Serif Display","Noto Sans TC",serif!important;font-weight:400;letter-spacing:-.02em;line-height:1.05}
+    .section,.contact{width:100%!important;margin:0!important;padding:112px 0!important;background:var(--cream)!important;border:0!important;border-radius:0!important;box-shadow:none!important}
+    .section-head{display:flex!important;align-items:flex-end!important;justify-content:space-between!important;gap:28px!important;margin-bottom:34px!important}
+    .section-title{font-size:clamp(2.35rem,5vw,4.4rem)!important;margin:10px 0 0!important;color:var(--ink)!important}
+    .section-note{max-width:420px!important;color:var(--muted)!important;font-size:.92rem!important}
+
+    .nav{position:fixed!important;z-index:30;top:18px!important;left:50%!important;right:auto!important;transform:translateX(-50%);width:min(1120px,calc(100% - 48px))!important;padding:0!important;background:rgba(255,253,248,.82)!important;border:1px solid rgba(231,221,210,.8)!important;border-radius:999px!important;backdrop-filter:blur(18px);box-shadow:0 16px 48px rgba(80,59,42,.08)!important}
+    .nav-inner{width:100%!important;padding:12px 18px!important;display:flex!important;align-items:center!important;justify-content:space-between!important}
+    .logo{display:flex!important;align-items:center!important;gap:10px!important;font-weight:600!important;color:var(--ink)!important}
+    .logo-mark{width:34px!important;height:34px!important;border:1px solid var(--line)!important;border-radius:50%!important;background:var(--paper)!important;display:grid!important;place-items:center!important;font-family:"DM Serif Display",serif!important;color:var(--ink)!important}
+    .nav-links{position:static!important;display:flex!important;flex-direction:row!important;gap:22px!important;padding:0!important;background:transparent!important;border:0!important;color:var(--muted)!important;font-size:.78rem!important;white-space:nowrap}
+    .nav-links a{position:relative}
+    .nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:1px;background:var(--ink)!important;transition:.25s}
+    .nav-links a:hover::after{width:100%}
+    .menu-btn{display:none!important;background:transparent!important;border:0!important;box-shadow:none!important;color:var(--ink)!important;font-size:1.4rem!important;padding:0!important}
+
+    .hero{width:100%!important;min-height:100vh!important;margin:0!important;padding:116px 0 54px!important;background:var(--cream)!important;border:0!important;border-radius:0!important;display:flex!important;align-items:center!important}
+    .hero-grid{width:min(1120px,calc(100% - 48px))!important;margin:auto!important;min-height:calc(100vh - 170px)!important;display:grid!important;grid-template-columns:.72fr 1.28fr!important;gap:28px!important;padding:18px!important;background:var(--paper)!important;border:1px solid var(--line)!important;border-radius:36px!important;box-shadow:var(--shadow)!important}
+    .hero-copy{padding:56px 18px 56px 40px!important;display:flex!important;flex-direction:column!important;justify-content:center!important}
+    .hero h1{font-size:clamp(4.2rem,9vw,8.4rem)!important;margin:14px 0 22px!important;color:var(--ink)!important}
+    .hero-name-zh{font-family:"Noto Sans TC",sans-serif!important;font-size:1em!important;line-height:1.08!important;font-weight:500!important;letter-spacing:.08em!important;white-space:nowrap}
+    .hero-name-en{font-family:"DM Serif Display",serif!important;font-size:.34em!important;letter-spacing:.08em!important;color:var(--muted)!important;margin-top:14px!important}
+    .hero-desc{max-width:390px!important;color:var(--muted)!important;font-size:.98rem!important;font-weight:400!important}
+    .hero-actions{display:flex!important;align-items:center!important;gap:22px!important;margin-top:38px!important}
+    .btn{display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:12px!important;border:1px solid var(--ink)!important;border-radius:999px!important;background:var(--ink)!important;color:var(--paper)!important;padding:13px 22px!important;font-size:.78rem!important;box-shadow:none!important;transition:.25s ease!important;cursor:pointer}
+    .btn:hover{transform:translateY(-2px)!important;background:#57473d!important;border-color:#57473d!important;color:var(--paper)!important}
+    .scroll-note{font-size:.68rem!important;color:var(--muted)!important;letter-spacing:.16em!important}
+    .hero-visual{position:relative!important;overflow:hidden!important;border-radius:28px!important;background:var(--lilac)!important;min-height:620px!important;border:0!important;box-shadow:none!important}
+    .hero-visual img{filter:saturate(.9) contrast(.98)!important;object-position:center center!important;transition:transform .9s ease!important}
+    .hero-visual:hover img{transform:scale(1.025)!important}
+    .hero-index{position:absolute!important;left:22px!important;top:20px!important;color:rgba(255,253,248,.9)!important;font:1.2rem "DM Serif Display",serif!important}
+    .hero-tag{position:absolute!important;right:20px!important;bottom:20px!important;background:rgba(255,253,248,.9)!important;color:var(--ink)!important;border:1px solid rgba(231,221,210,.75)!important;backdrop-filter:blur(14px)!important;border-radius:999px!important;padding:12px 18px!important;font-size:.68rem!important;letter-spacing:.12em!important;box-shadow:none!important}
+
+    .about{background:var(--paper)!important}
+    .about-grid{display:grid!important;grid-template-columns:.82fr 1.18fr!important;gap:72px!important;align-items:center!important}
+    .about-art{height:auto!important;aspect-ratio:4/5!important;border-radius:30px!important;overflow:hidden!important;background:var(--lilac)!important;border:1px solid var(--line)!important;box-shadow:none!important}
+    .about-art img{object-fit:contain!important;object-position:center bottom!important;filter:saturate(.88) contrast(.98)!important}
+    .about-badge{position:absolute!important;left:18px!important;top:18px!important;width:118px!important;height:118px!important;border-radius:24px!important;background:rgba(255,253,248,.9)!important;color:var(--muted)!important;border:1px solid var(--line)!important}
+    .about-badge strong{font:2.2rem "DM Serif Display",serif!important;color:var(--ink)!important}
+    .about-copy h2{font-size:clamp(2.4rem,5vw,4.8rem)!important;margin:12px 0 24px!important}
+    .quote{font-family:"Noto Sans TC",sans-serif!important;font-size:1.05rem!important;line-height:2!important;color:var(--ink)!important;margin-bottom:38px!important}
+    .facts{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;border-top:1px solid var(--line)!important}
+    .fact{padding:20px 0!important;border-bottom:1px solid var(--line)!important}
+    .fact:nth-child(odd){border-right:1px solid var(--line)!important}
+    .fact:nth-child(even){padding-left:24px!important}
+    .fact-label{font-size:.68rem!important;color:var(--muted)!important;letter-spacing:.16em!important}
+    .fact-value{font-size:.95rem!important;color:var(--ink)!important;font-weight:500!important}
+
+    .gallery{background:var(--cream)!important}
+    #gallery .section-head{align-items:center!important}
+    #gallery .gallery-grid{display:flex!important;grid-template-columns:none!important;gap:22px!important;overflow-x:auto!important;overflow-y:hidden!important;padding:4px 0 28px!important;scroll-snap-type:x mandatory!important;-webkit-overflow-scrolling:touch!important}
+    #gallery .gallery-grid::-webkit-scrollbar{height:6px}
+    #gallery .gallery-grid::-webkit-scrollbar-track{background:#efe7dd;border-radius:999px}
+    #gallery .gallery-grid::-webkit-scrollbar-thumb{background:#cdb69e;border-radius:999px}
+    #gallery .photo{flex:0 0 min(420px,78vw)!important;display:block!important;scroll-snap-align:start!important;background:transparent!important;border:0!important;border-radius:0!important;padding:0!important;box-shadow:none!important;overflow:visible!important}
+    #gallery .photo.wide{flex-basis:min(560px,86vw)!important}
+    #gallery .photo.tall{flex-basis:min(360px,74vw)!important}
+    #gallery .photo-frame{height:500px!important;aspect-ratio:auto!important;border-radius:30px!important;overflow:hidden!important;background:var(--lilac)!important;border:1px solid var(--line)!important}
+    #gallery .photo.wide .photo-frame{height:420px!important}
+    #gallery .photo.tall .photo-frame{height:560px!important}
+    #gallery .photo,#gallery .photo.wide,#gallery .photo.tall{flex-basis:min(420px,78vw)!important}
+    #gallery .photo-frame,#gallery .photo.wide .photo-frame,#gallery .photo.tall .photo-frame{height:auto!important;aspect-ratio:4/5!important;border-radius:28px!important;overflow:hidden!important}
+    #gallery .photo-frame img{border-radius:inherit!important}
+    #gallery .photo img{filter:saturate(.9) contrast(.98)!important;transition:transform .6s ease!important}
+    #gallery .photo:hover img{transform:scale(1.025)!important;filter:saturate(.95) contrast(1)!important}
+    .hero-visual img,.about-art img,#gallery .photo img{filter:brightness(1.14) contrast(.94) saturate(1.12) sepia(.08) hue-rotate(-3deg)!important}
+    .hero-visual:hover img,#gallery .photo:hover img{filter:brightness(1.14) contrast(.94) saturate(1.12) sepia(.08) hue-rotate(-3deg)!important}
+    #gallery .photo::after{display:none!important}
+    .photo-caption{display:block!important;margin-top:14px!important;color:var(--muted)!important;font-size:.84rem!important;line-height:1.65!important}
+    .photo-caption b{display:block!important;color:var(--ink)!important;font-size:.95rem!important;margin-bottom:2px!important}
+    .photo-caption span{display:block!important}
+    .gallery-note{margin:18px 0 0!important;color:var(--muted)!important;font-size:.78rem!important;letter-spacing:.08em!important;text-transform:uppercase!important}
+
+    .calculator{background:var(--paper)!important}
+    .calc-grid{display:grid!important;grid-template-columns:.9fr 1.1fr!important;gap:62px!important;align-items:center!important}
+    .calc-copy h2{font-size:clamp(2.5rem,5vw,4.8rem)!important;margin:10px 0 24px!important}
+    .calc-copy p{color:var(--muted)!important;max-width:470px!important}
+    .calc-card{background:var(--cream)!important;border:1px solid var(--line)!important;border-radius:30px!important;padding:38px!important;box-shadow:none!important;color:var(--ink)!important}
+    .input-row{display:flex!important;justify-content:space-between!important;align-items:center!important;margin-bottom:30px!important}
+    .input-row label{color:var(--muted)!important;font-size:.82rem!important}
+    .age-input{width:110px!important;background:transparent!important;border:0!important;border-bottom:1px solid var(--line)!important;color:var(--ink)!important;font:2.6rem "DM Serif Display",serif!important;text-align:center!important;outline:none!important}
+    .range{width:100%!important;accent-color:#b69c82!important}
+    .range-labels{display:flex!important;justify-content:space-between!important;color:var(--muted)!important;font-size:.68rem!important;margin-top:8px!important}
+    .result{margin-top:34px!important;padding-top:30px!important;border-top:1px solid var(--line)!important;display:flex!important;align-items:center!important;justify-content:space-between!important}
+    .human-age{font:clamp(4rem,8vw,6rem) "DM Serif Display",serif!important;color:var(--ink)!important;line-height:1!important}
+    .result-text{color:var(--muted)!important;text-align:right!important;font-size:.82rem!important}
+    .result-text strong{display:block!important;color:var(--ink)!important;font-size:1rem!important;margin-bottom:4px!important}
+
+    .timeline{background:var(--cream)!important}
+    .timeline-list{margin-top:24px!important;border-top:1px solid var(--line)!important}
+    .milestone{display:grid!important;grid-template-columns:120px 1fr auto!important;gap:36px!important;align-items:center!important;padding:32px 0!important;border-bottom:1px solid var(--line)!important;background:transparent!important;transition:.25s!important}
+    .milestone:hover{padding-left:14px!important;background:rgba(255,253,248,.55)!important}
+    .milestone-year{font:1.85rem "DM Serif Display",serif!important;color:#b89f87!important}
+    .milestone h3{margin:0 0 6px!important;font-size:1.05rem!important;color:var(--ink)!important}
+    .milestone p{margin:0!important;color:var(--muted)!important;font-size:.86rem!important}
+    .milestone-icon{width:44px!important;height:44px!important;border:1px solid var(--line)!important;border-radius:50%!important;background:var(--paper)!important;color:var(--ink)!important;display:grid!important;place-items:center!important}
+
+    .weight{background:var(--paper)!important}
+    .weight-grid{display:grid!important;grid-template-columns:.78fr 1.22fr!important;gap:62px!important;align-items:start!important}
+    .weight-copy h2{font-size:clamp(2.4rem,5vw,4.7rem)!important;margin:10px 0 24px!important}
+    .weight-copy p{max-width:420px!important;color:var(--muted)!important}
+    .weight-card{background:var(--cream)!important;border:1px solid var(--line)!important;border-radius:30px!important;padding:34px!important;box-shadow:none!important}
+    .weight-form{display:grid!important;grid-template-columns:1fr 1fr auto!important;gap:14px!important;align-items:end!important;padding-bottom:26px!important;border-bottom:1px solid var(--line)!important;min-width:0!important}
+    .weight-field{display:flex!important;flex-direction:column!important;gap:8px!important;min-width:0!important}
+    .weight-field label{font-size:.68rem!important;color:var(--muted)!important;letter-spacing:.14em!important}
+    .weight-field input{display:block!important;width:100%!important;min-width:0!important;max-width:100%!important;border:1px solid var(--line)!important;background:var(--paper)!important;color:var(--ink)!important;border-radius:16px!important;padding:12px 14px!important;font:inherit!important;font-size:.86rem!important;outline:none!important}
+    .weight-field input:focus{border-color:#b89f87!important;box-shadow:0 0 0 3px rgba(184,159,135,.13)!important}
+    .weight-submit{white-space:nowrap!important}
+    .weight-message{min-height:24px!important;margin:12px 0!important;font-size:.76rem!important;color:var(--muted)!important}
+    .weight-stats{display:grid!important;grid-template-columns:repeat(5,1fr)!important;gap:8px!important;margin:12px 0 24px!important}
+    .weight-stat{background:var(--paper)!important;border:1px solid rgba(231,221,210,.8)!important;border-radius:18px!important;padding:14px 9px!important;text-align:center!important;transition:.25s!important}
+    .weight-stat:hover{transform:translateY(-2px)!important;background:#fff!important}
+    .weight-stat-label{display:block!important;color:var(--muted)!important;font-size:.6rem!important;letter-spacing:.08em!important;margin-bottom:5px!important}
+    .weight-stat-value{font:1.3rem "DM Serif Display",serif!important;color:var(--ink)!important;white-space:nowrap!important}
+    .weight-stat-value small{font:400 .58rem "Noto Sans TC",sans-serif!important;color:var(--muted)!important;margin-left:3px!important}
+    .weight-chart-panel{margin:0 0 24px!important;padding:20px 16px 12px!important;border:1px solid var(--line)!important;border-radius:24px!important;background:var(--paper)!important}
+    .weight-chart-head{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:18px!important;margin-bottom:10px!important}
+    .weight-chart-head h3{margin:0!important;font-size:.9rem!important;color:var(--ink)!important;font-weight:500!important}
+    .weight-trend-summary{font-size:.68rem!important;color:var(--muted)!important}
+    .weight-chart{width:100%!important;min-height:210px!important;display:grid!important;place-items:center!important;overflow:hidden!important}
+    .weight-chart svg{display:block!important;width:100%!important;height:auto!important}
+    .weight-chart-empty{color:var(--muted)!important;font-size:.8rem!important;text-align:center!important}
+    .chart-grid{stroke:#e7ddd2!important}.chart-axis-label{fill:#8a7b70!important;font:11px "Noto Sans TC",sans-serif!important}.chart-line{stroke:#9f856b!important}.chart-point{stroke:#9f856b!important;fill:var(--paper)!important}.chart-area{fill:url(#weightAreaGradient)!important}
+    .weight-list{margin-top:4px!important}
+    .weight-row{display:grid!important;grid-template-columns:1fr auto auto!important;gap:14px!important;align-items:center!important;padding:16px 4px!important;border-bottom:1px solid var(--line)!important;transition:.25s!important}
+    .weight-row:hover{padding-left:10px!important}
+    .weight-date{font-size:.84rem!important;color:var(--muted)!important}
+    .weight-value{font:1.55rem "DM Serif Display",serif!important;color:var(--ink)!important}
+    .weight-value small{font:400 .68rem "Noto Sans TC",sans-serif!important;color:var(--muted)!important;margin-left:5px!important}
+    .weight-delete{border:1px solid var(--line)!important;background:transparent!important;color:var(--muted)!important;border-radius:999px!important;padding:7px 12px!important;font:inherit!important;font-size:.68rem!important;cursor:pointer!important;transition:.25s!important}
+    .weight-delete:hover{background:var(--ink)!important;border-color:var(--ink)!important;color:var(--paper)!important}
+    .weight-actions{display:flex!important;justify-content:flex-end!important;margin:18px 0 0!important}
+    .weight-export{background:transparent!important;color:var(--ink)!important;border-color:var(--line)!important;font-size:.68rem!important;letter-spacing:.08em!important;padding:9px 15px!important;box-shadow:none!important}
+    .weight-export:hover{background:var(--ink)!important;color:var(--paper)!important;border-color:var(--ink)!important}
+    .weight-empty{padding:30px 0!important;text-align:center!important;color:var(--muted)!important;font-size:.84rem!important}
+
+    .weight-dialog{width:min(430px,calc(100% - 28px))!important;border:0!important;border-radius:28px!important;padding:0!important;background:var(--paper)!important;color:var(--ink)!important;box-shadow:0 30px 90px rgba(47,40,35,.25)!important}
+    .weight-dialog::backdrop{background:rgba(47,40,35,.45)!important;backdrop-filter:blur(5px)!important}
+    .weight-dialog-inner{padding:34px!important}
+    .weight-dialog h3{font:1.9rem "DM Serif Display","Noto Sans TC",serif!important;margin:8px 0 14px!important}
+    .weight-dialog p{color:var(--muted)!important;font-size:.86rem!important;margin:0!important}
+    .weight-dialog-detail{margin-top:16px!important;padding:14px 16px!important;border-radius:16px!important;background:var(--cream)!important;color:var(--ink)!important}
+    .weight-dialog-actions{display:flex!important;justify-content:flex-end!important;gap:10px!important;margin-top:26px!important}
+    .weight-dialog-cancel{background:transparent!important;color:var(--ink)!important;border-color:var(--line)!important}
+    .weight-dialog-confirm{background:var(--ink)!important;color:var(--paper)!important;border-color:var(--ink)!important}
+
+    .contact{background:var(--cream)!important;padding-bottom:42px!important}
+    .contact-card{background:var(--paper)!important;border:1px solid var(--line)!important;border-radius:36px!important;padding:72px 7vw!important;display:grid!important;grid-template-columns:1fr auto!important;align-items:end!important;gap:36px!important;box-shadow:var(--shadow)!important;position:relative!important;overflow:hidden!important}
+    .contact-card::after{content:"P"!important;position:absolute!important;right:-28px!important;top:-110px!important;font:24rem "DM Serif Display",serif!important;color:rgba(216,194,168,.22)!important;line-height:1!important}
+    .contact-card h2{font-size:clamp(2.1rem,4.2vw,4.2rem)!important;margin:10px 0 0!important;position:relative!important;z-index:1!important}
+    .contact-links{position:relative!important;z-index:1!important;display:flex!important;flex-direction:column!important;gap:12px!important;align-items:flex-end!important}
+    .contact-links a{font-size:.86rem!important;border-bottom:1px solid var(--line)!important;padding-bottom:4px!important;color:var(--ink)!important}
+    .contact-links a:hover{color:var(--muted)!important;border-color:var(--muted)!important}
+    .footer{display:flex!important;justify-content:space-between!important;gap:18px!important;padding:30px 0 0!important;color:var(--muted)!important;font-size:.68rem!important;letter-spacing:.13em!important}
+    .reveal{opacity:0;transform:translateY(24px);transition:.75s ease}
+    .reveal.visible{opacity:1;transform:none}
+
+    @media(max-width:850px){
+      .wrap{width:min(100% - 36px,1120px)!important}
+      .nav{top:12px!important;width:min(100% - 28px,1120px)!important}
+      .nav-inner{padding:10px 14px!important}
+      .nav-links{position:fixed!important;inset:64px 14px auto!important;display:none!important;flex-direction:column!important;gap:18px!important;background:rgba(255,253,248,.96)!important;border:1px solid var(--line)!important;border-radius:24px!important;padding:20px!important;box-shadow:var(--shadow)!important}
+      .nav-links.open{display:flex!important}
+      .menu-btn{display:block!important}
+      .hero{padding:92px 0 44px!important}
+      .hero-grid{width:min(100% - 36px,1120px)!important;grid-template-columns:1fr!important;gap:16px!important;min-height:auto!important;border-radius:30px!important;padding:14px!important}
+      .hero-copy{padding:42px 18px 22px!important}
+      .hero-visual{min-height:auto!important;height:64vh!important;order:-1}
+      .about-grid,.calc-grid,.weight-grid{grid-template-columns:1fr!important;gap:42px!important}
+      .section,.contact{padding:86px 0!important}
+      .section-head{align-items:flex-start!important;flex-direction:column!important}
+      .contact-card{grid-template-columns:1fr!important}
+      .contact-links{align-items:flex-start!important}
+      .weight-form{grid-template-columns:1fr!important}
+      .weight-submit{width:100%!important}
+      .weight-stats{grid-template-columns:repeat(2,1fr)!important}
+      .weight-stat:last-child{grid-column:span 2!important}
+    }
+    @media(max-width:560px){
+      .wrap{width:min(100% - 28px,1120px)!important}
+      .nav{top:8px!important;width:min(100% - 20px,1120px)!important}
+      .hero{padding-top:84px!important}
+      .hero-grid{width:min(100% - 20px,1120px)!important;border-radius:26px!important}
+      .hero h1{font-size:4.4rem!important}
+      .hero-desc{font-size:.92rem!important}
+      .hero-actions{align-items:flex-start!important;flex-direction:column!important;gap:16px!important}
+      .hero-visual{height:58vh!important;border-radius:22px!important}
+      .hero-visual img{object-position:center center!important}
+      .section,.contact{padding:72px 0!important}
+      .about-art{aspect-ratio:4/5!important}
+      .about-badge{width:104px!important;height:104px!important;border-radius:20px!important}
+      .facts{grid-template-columns:1fr!important}
+      .fact:nth-child(odd){border-right:0!important}
+      .fact:nth-child(even){padding-left:0!important}
+      #gallery .photo{flex-basis:82vw!important}
+      #gallery .photo.wide,#gallery .photo.tall{flex-basis:82vw!important}
+      #gallery .photo-frame,#gallery .photo.wide .photo-frame,#gallery .photo.tall .photo-frame{height:430px!important}
+      #gallery .photo-frame,#gallery .photo.wide .photo-frame,#gallery .photo.tall .photo-frame{height:auto!important;aspect-ratio:4/5!important;border-radius:24px!important}
+      .calc-card,.weight-card{padding:26px 20px!important;border-radius:24px!important}
+      .result{align-items:flex-end!important}
+      .milestone{grid-template-columns:70px 1fr!important;gap:16px!important}
+      .milestone-icon{display:none!important}
+      .weight-chart-panel{padding:18px 10px 10px!important}
+      .weight-chart{min-height:185px!important}
+      .weight-chart-head{align-items:flex-start!important;flex-direction:column!important;gap:4px!important}
+      .weight-row{grid-template-columns:1fr auto!important;gap:8px!important}
+      .weight-delete{grid-column:1/-1!important;width:100%!important}
+      .weight-actions{justify-content:stretch!important}
+      .weight-export{width:100%!important}
+      .contact-card{padding:56px 26px!important;border-radius:28px!important}
+      .footer{flex-direction:column!important}
+    }
+    @media(max-width:850px){
+      .nav{left:14px!important;right:14px!important;top:12px!important;transform:none!important;width:auto!important;max-width:none!important;overflow:visible!important}
+      .nav-inner{min-width:0!important;width:100%!important}
+      .logo{min-width:0!important;flex:1 1 auto!important;white-space:nowrap!important}
+      .menu-btn{display:grid!important;place-items:center!important;flex:0 0 40px!important;width:40px!important;height:40px!important;border-radius:50%!important;color:var(--ink)!important}
+      .nav-links{position:absolute!important;left:0!important;right:0!important;top:calc(100% + 10px)!important;inset:auto 0 auto 0!important;width:100%!important;display:none!important;z-index:40!important}
+      .nav-links.open{display:flex!important}
+    }
+    @media(max-width:560px){
+      .nav{left:10px!important;right:10px!important;top:8px!important;width:auto!important}
+    }
+    .nav{position:absolute!important;top:20px!important;left:50%!important;right:auto!important;transform:translateX(-50%)!important;width:min(1120px,calc(100% - 48px))!important}
+    .hero{padding-top:116px!important}
+    @media(max-width:850px){
+      .nav{position:absolute!important;top:12px!important;left:14px!important;right:14px!important;transform:none!important;width:auto!important}
+      .nav-links{position:absolute!important;left:0!important;right:0!important;top:calc(100% + 10px)!important;display:none!important;flex-direction:column!important;gap:0!important;padding:10px!important;background:rgba(255,253,248,.98)!important;border:1px solid var(--line)!important;border-radius:22px!important;box-shadow:var(--shadow)!important}
+      .nav-links.open{display:flex!important}
+      .nav-links a{display:block!important;width:100%!important;padding:12px 14px!important;border-radius:14px!important;color:var(--ink)!important}
+      .nav-links a:hover{background:var(--cream)!important}
+      .nav-links a::after{display:none!important}
+    }
+    @media(max-width:560px){
+      .nav{top:8px!important;left:10px!important;right:10px!important;width:auto!important}
+    }
+    #gallery .gallery-grid > .photo,
+    #gallery .gallery-grid > .photo.wide,
+    #gallery .gallery-grid > .photo.tall,
+    #gallery .gallery-grid > .photo:first-child,
+    #gallery .gallery-grid > .photo:last-child{flex:0 0 420px!important;width:420px!important;max-width:420px!important;min-width:420px!important}
+    #gallery .gallery-grid > .photo .photo-frame,
+    #gallery .gallery-grid > .photo.wide .photo-frame,
+    #gallery .gallery-grid > .photo.tall .photo-frame{width:100%!important;height:auto!important;aspect-ratio:4/5!important;border-radius:28px!important;overflow:hidden!important}
+    #gallery .gallery-grid > .photo .photo-frame img{display:block!important;width:100%!important;height:100%!important;object-fit:cover!important;border-radius:inherit!important}
+    @media(max-width:560px){
+      #gallery .gallery-grid > .photo,
+      #gallery .gallery-grid > .photo.wide,
+      #gallery .gallery-grid > .photo.tall,
+      #gallery .gallery-grid > .photo:first-child,
+      #gallery .gallery-grid > .photo:last-child{flex-basis:82vw!important;width:82vw!important;min-width:82vw!important;max-width:82vw!important}
+      #gallery .gallery-grid > .photo .photo-frame,
+      #gallery .gallery-grid > .photo.wide .photo-frame,
+      #gallery .gallery-grid > .photo.tall .photo-frame{aspect-ratio:4/5!important;border-radius:24px!important}
+    }
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}.reveal{opacity:1!important;transform:none!important}}
+  </style>
+</head>
+<body>
+  <nav class="nav"><div class="wrap nav-inner"><a class="logo" href="#home"><span class="logo-mark">P</span>胖丁日記</a><div class="nav-links" id="navLinks"><a href="#about">關於胖丁</a><a href="#gallery">日常寫真</a><a href="#age">年齡換算</a><a href="#story">成長紀錄</a><a href="#weight">體重紀錄</a><a href="#contact">聯絡我</a></div><button class="menu-btn" id="menuBtn" aria-label="開啟選單">☰</button></div></nav>
+
+  <header class="hero" id="home"><div class="wrap hero-grid"><div class="hero-copy reveal"><div class="eyebrow">British Shorthair</div><h1 class="display"><span class="hero-name-zh">胖丁</span><span class="hero-name-en">Pang Ding</span></h1><p class="hero-desc">安靜、親人，慢慢陪伴每一天。她喜歡窗邊的光、家裡的角落，還有被溫柔摸摸的日常。</p><div class="hero-actions"><a class="btn" href="#about">認識胖丁 <span>↘</span></a><span class="scroll-note">A QUIET DAILY JOURNAL</span></div></div><div class="hero-visual reveal"><span class="hero-index">01</span><img src="images/pangding-window-light.jpg" alt="胖丁在窗邊看外面的風景"><div class="hero-tag" id="heroAgeTag">LILAC · 3 YEARS OLD</div></div></div></header>
+
+  <section class="section about" id="about"><div class="wrap about-grid"><div class="about-art reveal"><img loading="lazy" src="images/pangding-fullbody.jpg" alt="胖丁坐在椅子上抬頭看鏡頭"><div class="about-badge"><div><strong id="aboutBadgeAge">03</strong>歲的優雅女孩</div></div></div><div class="about-copy reveal"><div class="eyebrow">Meet Pang Ding</div><h2 class="display">安靜，但從不缺席。</h2><p class="quote">「安安靜靜，能玩能吃又非常親人。每天都被胖丁的可愛融化，是家裡最治癒的存在。」</p><div class="facts"><div class="fact"><div class="fact-label">BREED</div><div class="fact-value">英國短毛貓</div></div><div class="fact"><div class="fact-label">COAT</div><div class="fact-value">紫丁香色</div></div><div class="fact"><div class="fact-label">AGE</div><div class="fact-value" id="aboutAgeText">3 歲</div></div><div class="fact"><div class="fact-label">GENDER</div><div class="fact-value">女生</div></div><div class="fact"><div class="fact-label">BIRTHDAY</div><div class="fact-value">2023.06.28</div></div><div class="fact"><div class="fact-label">FAVORITES</div><div class="fact-value">干貝乾 · 小球玩具</div></div><div class="fact"><div class="fact-label">PERSONALITY</div><div class="fact-value">安靜 · 親人 · 愛玩</div></div></div></div></div></section>
+
+  <section class="section gallery" id="gallery"><div class="wrap"><div class="section-head reveal"><div><div class="eyebrow">Daily Photo Essay</div><h2 class="display section-title">胖丁的日常片段</h2></div><p class="section-note">像翻一本小小寫真集，慢慢看她在家裡、窗邊與陽光裡的安靜日常。</p></div><div class="gallery-grid reveal"><figure class="photo"><div class="photo-frame"><img loading="lazy" src="images/pangding-bathroom.jpg" alt="胖丁坐在浴室洗手台上"></div><figcaption class="photo-caption"><b>浴室小巡邏</b><span>洗手台與櫃子下方，是她固定報到的秘密基地。</span></figcaption></figure><figure class="photo"><div class="photo-frame"><img loading="lazy" src="images/pangding-blanket.jpg" alt="胖丁躲在柔軟毛毯下"></div><figcaption class="photo-caption"><b>毛毯小基地</b><span>躲在柔軟角落裡，安靜觀察整個家。</span></figcaption></figure><figure class="photo"><div class="photo-frame"><img loading="lazy" src="images/pangding-sleeping.jpg" alt="胖丁閉著眼睛靠在抱枕上休息"></div><figcaption class="photo-caption"><b>安心小睡</b><span>睡著的臉總是把一天的疲憊都融化。</span></figcaption></figure><figure class="photo wide"><div class="photo-frame"><img loading="lazy" src="images/pangding-resting.jpg" alt="胖丁悠閒地趴著休息"></div><figcaption class="photo-caption"><b>今天也很從容</b><span>趴著休息時像一個小小生活家，穩穩地待在自己的節奏裡。</span></figcaption></figure><figure class="photo"><div class="photo-frame"><img loading="lazy" src="images/pangding-curled-nap.jpg" alt="胖丁蜷成一圈睡在沙發旁"></div><figcaption class="photo-caption"><b>圓成一顆棉花球</b><span>家裡任何角落，都能變成她剛剛好的床。</span></figcaption></figure><figure class="photo tall"><div class="photo-frame"><img loading="lazy" src="images/pangding-grass-walk.jpg" alt="胖丁站在草地上看向旁邊"></div><figcaption class="photo-caption"><b>草地上的小探險</b><span>外面的風、草地和聲音，都讓她變得格外專注。</span></figcaption></figure><figure class="photo"><div class="photo-frame"><img loading="lazy" src="images/pangding-chin-pet.jpg" alt="胖丁閉眼享受摸下巴"></div><figcaption class="photo-caption"><b>摸摸時間</b><span>喜歡摸摸和抓抓，滿足時表情會直接變成微笑。</span></figcaption></figure><figure class="photo wide"><div class="photo-frame"><img loading="lazy" src="images/pangding-floral-nap.jpg" alt="胖丁靠著花布安心睡覺"></div><figcaption class="photo-caption"><b>花布旁的午睡</b><span>被溫暖包住的睡姿，是她信任這個家的樣子。</span></figcaption></figure><figure class="photo tall"><div class="photo-frame"><img loading="lazy" src="images/pangding-closeup.jpg" alt="胖丁側躺的臉部特寫"></div><figcaption class="photo-caption"><b>安靜靠近</b><span>近近看著她的側臉，連呼吸都變得慢一點。</span></figcaption></figure><figure class="photo"><div class="photo-frame"><img loading="lazy" src="images/pangding-outdoor-sun.jpg" alt="胖丁在戶外陽光下休息"></div><figcaption class="photo-caption"><b>陽光裡的胖丁</b><span>曬著光的側臉，安靜又穩重，很像她平常的樣子。</span></figcaption></figure></div><p class="gallery-note reveal">10 photos of Pang Ding, arranged as a horizontal photo journal.</p></div></section>
+
+  <section class="section calculator" id="age"><div class="wrap calc-grid"><div class="calc-copy reveal"><div class="eyebrow">Cat Age Calculator</div><h2 class="display">她的時間，<br>走得不太一樣。</h2><p>貓咪前兩年成長得特別快；之後每增加一歲，約相當於人類的四年。拖曳數字，看看胖丁此刻的人類年齡。</p></div><div class="calc-card reveal"><div class="input-row"><label for="catAge">貓咪實際年齡</label><input class="age-input" id="catAge" type="number" min="0" max="25" step="1" value="3" aria-label="貓咪年齡"></div><input class="range" id="ageRange" type="range" min="0" max="25" step="1" value="3"><div class="range-labels"><span>幼貓 0</span><span>熟齡 25</span></div><div class="result"><div class="human-age" id="humanAge">28</div><div class="result-text"><strong>相當於人類年齡</strong><span id="lifeStage">正值從容的青年時光</span></div></div></div></div></section>
+
+  <section class="section timeline" id="story"><div class="wrap"><div class="section-head reveal"><div><div class="eyebrow">Growing Up</div><h2 class="display section-title">成長紀錄</h2></div></div><div class="timeline-list reveal"><article class="milestone"><div class="milestone-year">2023<br><small>06.28</small></div><div><h3>胖丁出生</h3><p>安安靜靜的小女生來到世界，生日也成為 Instagram 名稱裡的 0628。</p></div><div class="milestone-icon">♡</div></article><article class="milestone"><div class="milestone-year">日常</div><div><h3>廁所巡邏員</h3><p>從小到大都喜歡往廁所跑，櫃子下方與洗手台是她最愛待著的地方；也常在落地窗前看風景、看小鳥。</p></div><div class="milestone-icon">☼</div></article><article class="milestone"><div class="milestone-year">現在</div><div><h3>零食限定技能王</h3><p>會坐下、握手、換手和 Give me five，但要有零食才願意配合。愛吃干貝乾、玩小球、睡覺、跑酷，也最喜歡有人摸摸抓抓。</p></div><div class="milestone-icon">✦</div></article></div></div></section>
+
+  <section class="section weight" id="weight"><div class="wrap weight-grid"><div class="weight-copy reveal"><div class="eyebrow">Weight Journal</div><h2 class="display">記下每一次，<br>安穩的成長。</h2><p>定期記錄胖丁的體重，最近五筆會依日期排列並保留在這台裝置中。</p></div><div class="weight-card reveal"><form class="weight-form" id="weightForm"><div class="weight-field"><label for="weightDate">日期</label><input id="weightDate" type="date" required></div><div class="weight-field"><label for="weightValue">體重（公斤）</label><input id="weightValue" type="number" min="0.1" max="30" step="0.01" placeholder="例如 5.20" required></div><button class="btn weight-submit" type="submit">加入紀錄 ＋</button></form><p class="weight-message" id="weightMessage" aria-live="polite"></p><div class="weight-stats" aria-label="體重統計"><div class="weight-stat"><span class="weight-stat-label">最新體重</span><span class="weight-stat-value" id="latestWeight">—</span></div><div class="weight-stat"><span class="weight-stat-label">最高體重</span><span class="weight-stat-value" id="highestWeight">—</span></div><div class="weight-stat"><span class="weight-stat-label">最低體重</span><span class="weight-stat-value" id="lowestWeight">—</span></div><div class="weight-stat"><span class="weight-stat-label">平均體重</span><span class="weight-stat-value" id="averageWeight">—</span></div><div class="weight-stat"><span class="weight-stat-label">總紀錄數</span><span class="weight-stat-value" id="totalRecords">0<small>筆</small></span></div></div><div class="weight-chart-panel"><div class="weight-chart-head"><h3>最近 10 筆體重趨勢</h3><span class="weight-trend-summary" id="weightTrendSummary">尚無資料</span></div><div class="weight-chart" id="weightChart" role="img" aria-label="最近十筆體重變化趨勢圖"></div></div><div class="weight-list" id="weightList" aria-label="最近五筆體重紀錄"></div><div class="weight-actions"><button class="btn weight-export" id="exportWeightData" type="button">匯出資料 CSV</button></div><dialog class="weight-dialog" id="weightDuplicateDialog" aria-labelledby="weightDialogTitle"><div class="weight-dialog-inner"><div class="eyebrow">Duplicate Date</div><h3 id="weightDialogTitle">這個日期已有紀錄</h3><p>是否要以新輸入的體重覆蓋原本資料？</p><p class="weight-dialog-detail" id="weightDialogDetail"></p><div class="weight-dialog-actions"><button class="btn weight-dialog-cancel" id="cancelOverwrite" type="button">取消</button><button class="btn weight-dialog-confirm" id="confirmOverwrite" type="button">確認覆蓋</button></div></div></dialog><dialog class="weight-dialog" id="weightDeleteDialog" aria-labelledby="weightDeleteDialogTitle"><div class="weight-dialog-inner"><div class="eyebrow">Delete Record</div><h3 id="weightDeleteDialogTitle">刪除這筆紀錄？</h3><p>刪除後會重新計算統計與趨勢圖，這個動作無法復原。</p><p class="weight-dialog-detail" id="weightDeleteDialogDetail"></p><div class="weight-dialog-actions"><button class="btn weight-dialog-cancel" id="cancelDeleteWeight" type="button">取消</button><button class="btn weight-dialog-confirm" id="confirmDeleteWeight" type="button">確認刪除</button></div></div></dialog></div></div></section>
+
+  <section class="contact" id="contact"><div class="wrap"><div class="contact-card reveal"><div><div class="eyebrow">Say Hello</div><h2 class="display">來和胖丁<br>打聲招呼。</h2></div><div class="contact-links"><a href="https://www.instagram.com/pangding0628/" target="_blank" rel="noopener noreferrer">Instagram：@pangding0628 ↗</a></div></div><footer class="footer"><span>© 2026 PANG DING. ALL PAWS RESERVED.</span><a href="#home">BACK TO TOP ↑</a></footer></div></section>
+
+  <script>
+    const range=document.getElementById('ageRange'),input=document.getElementById('catAge'),result=document.getElementById('humanAge'),stage=document.getElementById('lifeStage'),heroAgeTag=document.getElementById('heroAgeTag'),aboutBadgeAge=document.getElementById('aboutBadgeAge'),aboutAgeText=document.getElementById('aboutAgeText'),pangdingBirthday='2023-06-28';
+    function humanYears(age){if(age<=0)return 0;if(age===1)return 15;if(age===2)return 24;return 24+(age-2)*4}
+    function calculateFullYears(birthday){const birth=new Date(`${birthday}T00:00:00`),today=new Date();let age=today.getFullYear()-birth.getFullYear();if(today<new Date(today.getFullYear(),birth.getMonth(),birth.getDate()))age--;return Math.max(0,age)}
+    function syncDisplayedAge(age){const padded=String(age).padStart(2,'0');heroAgeTag.textContent=`LILAC · ${age} ${age===1?'YEAR':'YEARS'} OLD`;aboutBadgeAge.textContent=padded;aboutAgeText.textContent=`${age} 歲`}
+    function updateAge(value){const age=Math.max(0,Math.min(25,Number(value)||0));range.value=age;input.value=age;result.textContent=humanYears(age);stage.textContent=age<1?'還是需要細心呵護的小寶寶':age<3?'充滿好奇的青春期':age<7?'正值從容的青年時光':age<11?'成熟穩重的生活家':'值得溫柔照顧的熟齡夥伴'}
+    const currentCatAge=calculateFullYears(pangdingBirthday);syncDisplayedAge(currentCatAge);updateAge(currentCatAge);
+    range.addEventListener('input',e=>updateAge(e.target.value));input.addEventListener('input',e=>updateAge(e.target.value));
+    const weightForm=document.getElementById('weightForm'),weightDate=document.getElementById('weightDate'),weightValue=document.getElementById('weightValue'),weightList=document.getElementById('weightList'),weightMessage=document.getElementById('weightMessage'),latestWeight=document.getElementById('latestWeight'),highestWeight=document.getElementById('highestWeight'),lowestWeight=document.getElementById('lowestWeight'),averageWeight=document.getElementById('averageWeight'),totalRecords=document.getElementById('totalRecords'),weightChart=document.getElementById('weightChart'),weightTrendSummary=document.getElementById('weightTrendSummary'),exportWeightData=document.getElementById('exportWeightData'),weightDuplicateDialog=document.getElementById('weightDuplicateDialog'),weightDialogDetail=document.getElementById('weightDialogDetail'),cancelOverwrite=document.getElementById('cancelOverwrite'),confirmOverwrite=document.getElementById('confirmOverwrite'),weightDeleteDialog=document.getElementById('weightDeleteDialog'),weightDeleteDialogDetail=document.getElementById('weightDeleteDialogDetail'),cancelDeleteWeight=document.getElementById('cancelDeleteWeight'),confirmDeleteWeight=document.getElementById('confirmDeleteWeight'),weightStorageKey='pangding-weight-records';
+    const now=new Date(),today=`${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')}`;weightDate.value=today;weightDate.max=today;
+    let weightRecords=[];try{weightRecords=JSON.parse(localStorage.getItem(weightStorageKey))||[]}catch(error){weightRecords=[]}let pendingWeightUpdate=null,pendingWeightDeleteIndex=null;
+    function formatRecordDate(value){if(!value)return '日期未設定';const [year,month,day]=String(value).split('-');return year&&month&&day?`${year}.${month}.${day}`:'日期未設定'}
+    function renderWeightChart(sorted){const records=sorted.filter(record=>Boolean(String(record.date||'').trim())&&Number.isFinite(Number(record.weight))).slice(0,10).reverse();if(!records.length){weightChart.innerHTML='<div class="weight-chart-empty">目前沒有可繪製圖表的日期資料</div>';weightTrendSummary.textContent='無可用日期資料';return}const width=620,height=230,left=48,right=18,top=18,bottom=38,plotWidth=width-left-right,plotHeight=height-top-bottom,values=records.map(record=>Number(record.weight)),minimum=Math.min(...values),maximum=Math.max(...values),range=maximum-minimum,padding=range?range*.2:.25,minY=Math.max(0,minimum-padding),maxY=maximum+padding,x=index=>records.length===1?left+plotWidth/2:left+index*(plotWidth/(records.length-1)),y=value=>top+(maxY-value)/(maxY-minY)*plotHeight,points=records.map((record,index)=>({x:x(index),y:y(Number(record.weight)),record})),linePath=points.map((point,index)=>`${index?'L':'M'} ${point.x.toFixed(1)} ${point.y.toFixed(1)}`).join(' '),areaPath=records.length>1?`M ${points[0].x.toFixed(1)} ${top+plotHeight} ${linePath.replace(/^M/, 'L')} L ${points.at(-1).x.toFixed(1)} ${top+plotHeight} Z`:'',gridLines=Array.from({length:4},(_,index)=>{const value=maxY-(maxY-minY)*index/3,gridY=y(value);return `<line class="chart-grid" x1="${left}" y1="${gridY.toFixed(1)}" x2="${width-right}" y2="${gridY.toFixed(1)}"/><text class="chart-axis-label" x="${left-8}" y="${(gridY+4).toFixed(1)}" text-anchor="end">${value.toFixed(1)}</text>`}).join(''),labelStep=Math.max(1,Math.ceil(records.length/5)),dateLabels=points.map((point,index)=>index%labelStep===0||index===points.length-1?`<text class="chart-axis-label" x="${point.x.toFixed(1)}" y="${height-10}" text-anchor="middle">${point.record.date.slice(5).replace('-','/')}</text>`:'').join(''),circles=points.map(point=>`<circle class="chart-point" cx="${point.x.toFixed(1)}" cy="${point.y.toFixed(1)}" r="5"><title>${formatRecordDate(point.record.date)} · ${Number(point.record.weight).toFixed(2)} kg</title></circle>`).join('');weightChart.innerHTML=`<svg viewBox="0 0 ${width} ${height}" aria-hidden="true"><defs><linearGradient id="weightAreaGradient" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#a9aea4" stop-opacity=".42"/><stop offset="100%" stop-color="#a9aea4" stop-opacity=".03"/></linearGradient></defs>${gridLines}${areaPath?`<path class="chart-area" d="${areaPath}"/>`:''}<path class="chart-line" d="${linePath}"/>${circles}${dateLabels}</svg>`;const change=values.at(-1)-values[0];weightTrendSummary.textContent=records.length===1?'目前 1 筆紀錄':`${records.length} 筆 · 較首筆 ${change>0?'+':''}${change.toFixed(2)} kg`;weightChart.setAttribute('aria-label',`最近 ${records.length} 筆體重趨勢，從 ${values[0].toFixed(2)} 公斤到 ${values.at(-1).toFixed(2)} 公斤`)}
+    function renderWeights(){const sorted=weightRecords.map((record,index)=>({...record,__index:index})).sort((a,b)=>{const dateA=String(a.date||''),dateB=String(b.date||'');if(dateA&&dateB)return dateB.localeCompare(dateA)||(b.createdAt||0)-(a.createdAt||0);if(dateA)return-1;if(dateB)return 1;return(b.createdAt||0)-(a.createdAt||0)}),recent=sorted.slice(0,5),values=weightRecords.map(record=>Number(record.weight)).filter(Number.isFinite);weightList.innerHTML=recent.length?recent.map(record=>`<div class="weight-row"><span class="weight-date">${formatRecordDate(record.date)}</span><span class="weight-value">${Number(record.weight).toFixed(2)}<small>kg</small></span><button class="weight-delete" type="button" data-index="${record.__index}" aria-label="刪除 ${formatRecordDate(record.date)} 的體重紀錄">刪除</button></div>`).join(''):'<div class="weight-empty">尚未有紀錄，從今天開始吧。</div>';if(values.length){const showWeight=(element,value)=>element.innerHTML=`${value.toFixed(2)}<small>kg</small>`;showWeight(latestWeight,Number(sorted[0].weight));showWeight(highestWeight,Math.max(...values));showWeight(lowestWeight,Math.min(...values));showWeight(averageWeight,values.reduce((sum,value)=>sum+value,0)/values.length)}else{[latestWeight,highestWeight,lowestWeight,averageWeight].forEach(element=>element.textContent='—')}totalRecords.innerHTML=`${weightRecords.length}<small>筆</small>`;renderWeightChart(sorted)}
+    function persistWeightRecords(successMessage){try{localStorage.setItem(weightStorageKey,JSON.stringify(weightRecords));weightMessage.textContent=successMessage}catch(error){weightMessage.textContent='資料已更新，但目前無法永久儲存。'}}
+    function exportWeightsToCsv(){if(!weightRecords.length){weightMessage.textContent='目前沒有可匯出的體重資料。';return}const escapeCsv=value=>`"${String(value??'').replace(/"/g,'""')}"`,sorted=[...weightRecords].sort((a,b)=>{const dateA=String(a.date||''),dateB=String(b.date||'');if(dateA&&dateB)return dateA.localeCompare(dateB)||(a.createdAt||0)-(b.createdAt||0);if(dateA)return-1;if(dateB)return 1;return(a.createdAt||0)-(b.createdAt||0)}),rows=[['日期','體重'],...sorted.map(record=>[record.date||'日期未設定',Number(record.weight).toFixed(2)])],csv='\ufeff'+rows.map(row=>row.map(escapeCsv).join(',')).join('\r\n'),blob=new Blob([csv],{type:'text/csv;charset=utf-8;'}),downloadDate=`${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')}`,url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download=`pangding-weight-${downloadDate}.csv`;document.body.appendChild(link);link.click();link.remove();URL.revokeObjectURL(url);weightMessage.textContent='已匯出 CSV 體重資料。'}
+    function requestDeleteWeight(index){const record=weightRecords[index];if(!record)return;pendingWeightDeleteIndex=index;weightDeleteDialogDetail.textContent=`${formatRecordDate(record.date)}：${Number(record.weight).toFixed(2)} kg`;weightMessage.textContent='請確認是否刪除這筆體重紀錄。';weightDeleteDialog.showModal()}
+    weightForm.addEventListener('submit',event=>{event.preventDefault();const value=Number(weightValue.value),date=weightDate.value;if(!date||!Number.isFinite(value)||value<.1||value>30){weightMessage.textContent='請輸入有效的日期與體重。';return}const duplicateIndex=weightRecords.reduce((latestIndex,record,index)=>record.date===date&&(latestIndex<0||(record.createdAt||0)>(weightRecords[latestIndex].createdAt||0))?index:latestIndex,-1);if(duplicateIndex>=0){pendingWeightUpdate={index:duplicateIndex,date,weight:value};weightDialogDetail.textContent=`${formatRecordDate(date)}：${Number(weightRecords[duplicateIndex].weight).toFixed(2)} kg → ${value.toFixed(2)} kg`;weightMessage.textContent='此日期已有紀錄，請確認是否覆蓋。';weightDuplicateDialog.showModal();return}weightRecords.push({date,weight:value,createdAt:Date.now()});persistWeightRecords('已儲存這筆體重紀錄。');weightValue.value='';renderWeights()});
+    exportWeightData.addEventListener('click',exportWeightsToCsv);
+    weightList.addEventListener('click',event=>{const button=event.target.closest('.weight-delete');if(!button)return;requestDeleteWeight(Number(button.dataset.index))});
+    confirmDeleteWeight.addEventListener('click',()=>{if(pendingWeightDeleteIndex===null)return;weightRecords.splice(pendingWeightDeleteIndex,1);persistWeightRecords('已刪除這筆體重紀錄。');pendingWeightDeleteIndex=null;weightDeleteDialog.close();renderWeights()});
+    cancelDeleteWeight.addEventListener('click',()=>{pendingWeightDeleteIndex=null;weightMessage.textContent='已取消刪除，資料保持不變。';weightDeleteDialog.close()});weightDeleteDialog.addEventListener('cancel',()=>{pendingWeightDeleteIndex=null;weightMessage.textContent='已取消刪除，資料保持不變。'});
+    confirmOverwrite.addEventListener('click',()=>{if(!pendingWeightUpdate)return;const {index,weight}=pendingWeightUpdate;weightRecords[index]={...weightRecords[index],weight,createdAt:Date.now()};persistWeightRecords('已覆蓋原本的體重紀錄。');pendingWeightUpdate=null;weightValue.value='';weightDuplicateDialog.close();renderWeights()});
+    cancelOverwrite.addEventListener('click',()=>{pendingWeightUpdate=null;weightMessage.textContent='已取消覆蓋，原本資料保持不變。';weightDuplicateDialog.close()});weightDuplicateDialog.addEventListener('cancel',()=>{pendingWeightUpdate=null;weightMessage.textContent='已取消覆蓋，原本資料保持不變。'});renderWeights();
+    const menuBtn=document.getElementById('menuBtn'),navLinks=document.getElementById('navLinks'),nav=document.querySelector('.nav');menuBtn.addEventListener('click',event=>{event.stopPropagation();navLinks.classList.toggle('open');menuBtn.textContent=navLinks.classList.contains('open')?'×':'☰'});navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{navLinks.classList.remove('open');menuBtn.textContent='☰'}));document.addEventListener('click',event=>{if(!navLinks.classList.contains('open')||nav.contains(event.target))return;navLinks.classList.remove('open');menuBtn.textContent='☰'});
+    const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+  </script>
+</body>
+</html>
+
+
+
