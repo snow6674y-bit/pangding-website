@@ -3,6 +3,12 @@
 這是一個以英國短毛貓「胖丁」為主角的單頁網站。  
 網站以溫暖柔和的色系、圓角卡片、照片排版與互動功能，呈現胖丁的日常紀錄。
 
+## 線上展示
+
+[開啟胖丁日記](https://snow6674y-bit.github.io/pangding-website/)
+
+![胖丁日記主視覺](images/pangding-window-light.jpg)
+
 ## 專案介紹
 
 本專案使用 HTML、CSS、JavaScript 製作，主要程式碼集中在 `index.html`。  
@@ -97,8 +103,6 @@ http://localhost:8000
 - 體重紀錄備註欄位
 - 照片燈箱瀏覽模式
 - Gallery 手機版照片說明優化
-- SEO 與社群分享預覽設定
-- Favicon
 - 圖片 WebP 優化
 - 將 CSS 與 JavaScript 拆成獨立檔案
-- 部署到 GitHub Pages、Netlify 或 Vercel
+- 建立完整的 UI/UX 專案案例與網站畫面截圖
